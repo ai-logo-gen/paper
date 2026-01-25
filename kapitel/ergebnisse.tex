@@ -130,3 +130,13 @@ The fine-tuned model demonstrates a superior ability to implement specific desig
     \item \textbf{Weaknesses:} Challenges remain in fine-grained details. For instance, text rendering (Case E3) can be deformed, and specific gradient instructions (Case E4) are occasionally ignored.
 \end{itemize}
 Despite these limitations, the fine-tuned model shows a significant improvement in generating commercially viable, minimalist logos.
+
+\subsection{Confirmation of Hypotheses}
+
+\textbf{Hypothesis H1}, stating that sketch conditioning leads to significantly higher structural correspondence, was clearly confirmed. Evaluation showed a dramatic increase in the \ac{SSIM} score from 0.617 for the base model without ControlNet to 0.817 with ControlNet (+32.4\%). This validates the theoretical considerations of \textcite{ZHANG2023}, positioning ControlNet as a solution for the geometric limitations of pure text-to-image models.
+
+\textbf{Hypothesis H2}, postulating quality improvement through domain-specific fine-tuning, was fully confirmed. The best fine-tuned model achieved a \ac{CLIP} score of 0.284 vs. 0.274 for the base model (+3.7\%) and an \ac{FID} reduction from 229.0 to 158.2 (-30.9\%). These results align with \textcite{ruiz2023dreamboothfinetuningtexttoimage}, validating significant gains even with limited iterations. Notably, the slight SSIM drop (0.817 to 0.789) reflects a desired tradeoff: shifting focus from rigid structure to semantic accuracy and visual quality suitable for minimalist logos.
+
+\textbf{Hypothesis H3}, assuming a correlation between hyperparameters and quality, was also confirmed. Learning rate proved to be the dominant factor for both semantic coherence (\ac{CLIP}) and visual quality (\ac{FID}). A high learning rate of $1e-4$ combined with the ``extended'' configuration yielded the best overall results. Higher \ac{LoRA} ranks (32) tended to enable better semantic coherence at high learning rates, consistent with \textcite{HU2021}, suggesting that higher ranks approach full fine-tuning capacity.
+
+\textbf{Hypothesis H4}, suggesting the superiority of the optimized prototype in qualitative assessment, was supported by the stylistic analysis. The evaluation (see Section \ref{sec:qualitative_analyse}) indicated that the fine-tuned model better adheres to the minimalist design intent compared to the base model. Specifically, it demonstrated improved capabilities in generating solid backgrounds and harmonic color palettes suitable for professional branding. While the base model frequently introduced unwanted textures, the optimized prototype produced cleaner, vector-like aesthetics, suggesting enhanced commercial suitability despite minor limitations in fine-grained detail.

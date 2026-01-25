@@ -10,3 +10,12 @@ This work presents a specialized pipeline for generating minimalist logos by fin
 Our research focuses on the optimization of the fine-tuning process itself. We conduct a rigorous analysis of Hyperparameters within the Low-Rank Adaptation (LoRA) technique, specifically examining the impact of learning rates and rank dimensions on the trade-off between training stability and generation quality.
 
 The evaluation is primarily quantitative, utilizing the Fréchet Inception Distance (FID) to assess image quality, the CLIP score for semantic alignment, and the Structural Similarity Index (SSIM) to measure fidelity to the input sketches. We complement these metrics with qualitative case studies that illustrate the model's capability to translate rough sketches into polished, minimalist designs. This approach validates that accessible hardware and efficient training strategies can yield professional-grade design automation tools.
+
+\subsection{Hypotheses}
+Based on the defined objectives, we postulate the following hypotheses:
+\begin{itemize}
+	\item \textbf{Hypothesis 1 (H1):} Additional conditioning of the model via a sketch leads to a significantly higher structural correspondence with the design intent compared to purely text-conditioned results.
+	\item \textbf{Hypothesis 2 (H2):} Optimizing an image generator through fine-tuning on a specialized logo dataset significantly improves the ability to generate stylistically coherent logos, as reflected in established image quality metrics.
+	\item \textbf{Hypothesis 3 (H3):} Specific hyperparameter configurations have a direct and measurable influence on result quality, with an optimal configuration leading to better visual quality, structural correspondence, and text-image coherence.
+	\item \textbf{Hypothesis 4 (H4):} A resource-efficiently optimized prototype generates results on consumer-grade hardware that exhibit higher quality in realizing design intent and greater commercial relevance in a qualitative evaluation compared to the unspecialized base model.
+\end{itemize}
