@@ -19,20 +19,20 @@ The qualitative analysis of representative case studies confirms that the fine-t
 
 While the results demonstrate the viability of the proposed pipeline, several limitations identify key areas for future optimization.
 
-\subsubsection{Data Quality and Augmentation}
+\subsubsection*{Data Quality and Augmentation}
 The dataset, while extensive, is limited to specific minimalist styles. The existing captions are often simplistic tags, lacking descriptive depth.
 \begin{itemize}
-    \item \textbf{Future Work:} Future iterations should employ Vision-Language Models (VLMs) to generate ultra-detailed captions and structured categorizations (e.g., wordmarks vs. pictorial marks). This would significantly enhance the model's semantic understanding \parencite{zeng-etal-2025-enhancing-large}. Additionally, synthetic sketch generation could be diversified using edge detection or dedicated sketch models to improve robustness via data augmentation.
+	\item \textbf{Future Work:} Future iterations should employ Vision-Language Models (VLMs) to generate ultra-detailed captions and structured categorizations (e.g., wordmarks vs. pictorial marks). This would significantly enhance the model's semantic understanding \parencite{zeng-etal-2025-enhancing-large}. Additionally, synthetic sketch generation could be diversified using edge detection or dedicated sketch models to improve robustness via data augmentation.
 \end{itemize}
 
-\subsubsection{Modeling Efficiency and Stability}
+\subsubsection*{Modeling Efficiency and Stability}
 The experiments revealed training instability characteristic of LoRA fine-tuning \parencite{luo2024privacypreservinglowrankadaptationmembership}. Hardware constraints (consumer GPU) limited batch sizes to 8.
 \begin{itemize}
-    \item \textbf{Future Work:} Implementation of QLoRA (4-bit quantization) \parencite{dettmers2023qloraefficientfinetuningquantized} and ``torch.compile()'' would allow for larger batch sizes and faster training on consumer hardware. Furthermore, Bayesian optimization could replace grid search to more efficiently explore the hyperparameter space and identify stable convergence regions.
+	\item \textbf{Future Work:} Implementation of QLoRA (4-bit quantization) \parencite{dettmers2023qloraefficientfinetuningquantized} and ``torch.compile()'' would allow for larger batch sizes and faster training on consumer hardware. Furthermore, Bayesian optimization could replace grid search to more efficiently explore the hyperparameter space and identify stable convergence regions.
 \end{itemize}
 
-\subsubsection{Evaluation Metrics}
+\subsubsection*{Evaluation Metrics}
 Standard metrics (CLIP, FID, SSIM) do not fully capture design-specific criteria like memorability or vectorizability.
 \begin{itemize}
-    \item \textbf{Future Work:} Developing domain-specific metrics (e.g., automated vectorization success rates) and conducting larger-scale studies with professional designers would provide more robust quality assessments.
+	\item \textbf{Future Work:} Developing domain-specific metrics (e.g., automated vectorization success rates) and conducting larger-scale studies with professional designers would provide more robust quality assessments.
 \end{itemize}
