@@ -115,7 +115,7 @@ The curated dataset (1,810 images) was split into \textbf{Training (80\%, 1448)}
 \subsection{Fine-Tuning Strategy and Hyperparameters}\label{sec:feintuning_strategie}
 We employ Low-Rank Adaptation (LoRA) \parencite{HU2021} to fine-tune the UNet component of Stable Diffusion. The VAE, Text Encoder, and ControlNet are frozen to preserve their pretrained capabilities and ensure resource efficiency.
 
-We systematically analyze the following hyperparameters to identify the optimal configuration:
+We systematically analyze the following hyperparameters to identify the optimal configuration. In total, 20 distinct hyperparameter combinations are evaluated (see Appendix \ref{app:hyperpara_kombis} for the complete list):
 \begin{itemize}
 	\item \textbf{Target Modules:} Comparing adaptation of only Attention layers vs. an Extended configuration (Attention + Feed-Forward layers) \parencite{dettmers2023qloraefficientfinetuningquantized}.
 	\item \textbf{LoRA Rank ($r$):} Evaluating ranks \textbf{\{4, 8, 16, 32\}} to find the balance between expressivity and efficiency \parencite{HU2021}.
