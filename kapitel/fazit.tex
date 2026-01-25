@@ -8,7 +8,7 @@ The experimental evaluation confirmed that structural guidance is indispensable 
 A key contribution of this work is the validation of parameter-efficient training strategies for the specific domain of logo design.
 \begin{itemize}
     \item \textbf{Hyperparameter Dynamics:} Our findings confirm literature recommendations for high learning rates ($1e-4$) in PEFT methods \parencite{HU2021}. However, contrary to the suggestion that very low ranks (4 or 8) constitute a "sweet spot" \parencite{HU2021}, our experiments demonstrated that a higher rank of 32 provided the necessary capacity to capture the stylistic nuances of minimalist design without overfitting.
-    \item \textbf{Efficiency Verification:} We demonstrated that a compact dataset of 1,500 images and approximately 2,500 training steps are sufficient to achieve professional-grade results. This challenges the assumption that massive datasets are a prerequisite for effective domain adaptation.
+    \item \textbf{Efficiency Verification:} We demonstrated that a compact dataset of 1,500 images and approximately 2,500 training steps are sufficient to achieve professional-grade results in the context of minimalist logos. This challenges the general assumption that massive datasets are a prerequisite for effective domain adaptation.
 \end{itemize}
 
 \subsection{Future Directions}
