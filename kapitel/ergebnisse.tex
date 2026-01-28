@@ -3,7 +3,7 @@
 
 \subsection{Quantitative Evaluation}
 This section presents the quantitative assessment of the model's performance based on the metrics CLIP, SSIM, and FID, as defined in Chapter \ref{sec:eval_pipe}. The evaluation follows a two-stage process tracked via MLflow: First, we analyze the model's sensitivity to LoRA rank ($r$), learning rate ($lr$), and target modules (``attn\_only'' vs. ``extended'') by evaluating 20 distinct hyperparameter combinations on the validation set. Subsequently, the optimal configuration identified from this analysis is validated on the unseen test set to confirm its generalization capabilities (see Section \ref{sec:testresults}).
-
+\newpage
 \subsubsection*{Loss Curve Analysis}
 Validation loss serves as an indicator of generalization. Figures \ref{fig:val_loss_curves_attn_only} and \ref{fig:val_loss_curves_extended} illustrate the training dynamics.
 
