@@ -69,13 +69,13 @@ Required/typical journal article sections:
 - [x] Remove `\tableofcontents` from einleitung.tex
 - [x] Keep hypotheses in Introduction or move to end of Introduction
 - [x] Ensure Introduction has no subheadings (journal requirement) - converted to paragraph
-- [ ] Verify all citations are properly formatted
+- [x] Verify all citations are properly formatted
 
 ## Phase 6: Content Adaptation - Background/Related Work
 - [x] Decide: Keep as separate section "Background" or merge key content into Introduction
 - [x] Keeping as "Theoretical Background and Related Work" - appropriate for journal
 - [x] Ensure proper heading hierarchy (max 3 levels)
-- [ ] Verify all citations
+- [x] Verify all citations
 
 ## Phase 11: New Required Sections - Declarations
 - [x] **Add "Declarations" section** before references
@@ -106,7 +106,7 @@ Required/typical journal article sections:
    - Verify all statements are accurate
 
 ## Phase 13-14: Final Checks
-- [ ] Compile document and verify it works
-- [ ] Check PDF output
-- [ ] Verify all citations render correctly
+- [x] Compile document and verify it works
+- [x] Check PDF output
+- [x] Verify all citations render correctly
 - [ ] Final proofreading
