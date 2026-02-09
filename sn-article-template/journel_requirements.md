@@ -9,6 +9,40 @@ Examples of such statement(s) are shown below:
 All authors contributed to the study conception and design. Material preparation, data collection and analysis were performed by [full name], [full name] and [full name]. The first draft of the manuscript was written by [full name] and all authors commented on previous versions of the manuscript. All authors read and approved the final manuscript.
 
 ------------
+Reference list
+If available, please always include DOIs as full DOI links in your reference list (e.g. “https://doi.org/abc”).
+
+    Journal article
+
+    Gamelin FX, Baquet G, Berthoin S, Thevenet D, Nourry C, Nottin S, Bosquet L (2009) Effect of high intensity intermittent training on heart rate variability in prepubescent children. Eur J Appl Physiol 105:731-738. https://doi.org/10.1007/s00421-008-0955-8
+
+    Ideally, the names of all authors should be provided, but the usage of “et al” in long author lists will also be accepted:
+
+    Smith J, Jones M Jr, Houghton L et al (1999) Future of health insurance. N Engl J Med 965:325–329
+    Article by DOI
+
+    Slifka MK, Whitton JL (2000) Clinical implications of dysregulated cytokine production. J Mol Med. https://doi.org/10.1007/s001090000086
+    Book
+
+    South J, Blass B (2001) The future of modern genomics. Blackwell, London
+    Book chapter
+
+    Brown B, Aaron M (2001) The politics of nature. In: Smith J (ed) The rise of modern genomics, 3rd edn. Wiley, New York, pp 230-257
+    Online document
+
+    Cartwright J (2007) Big stars have weather too. IOP Publishing PhysicsWeb. http://physicsweb.org/articles/news/11/6/16/1. Accessed 26 June 2007
+    Dissertation
+
+    Trent JW (1975) Experimental acute renal failure. Dissertation, University of California
+
+Always use the standard abbreviation of a journal’s name according to the ISSN List of Title Word Abbreviations, see
+
+ISSN.org LTWA
+
+If you are unsure, please use the full journal title.
+
+
+--------
 
 Statements and Declarations
 
