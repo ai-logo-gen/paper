@@ -4,14 +4,14 @@
 \subsection{Research Design and Dataset}
 This study employs a quantitative-experimental approach to evaluate the performance of fine-tuned diffusion models for minimalist logo generation. The core objective is to adapt a base model using parameter-efficient fine-tuning (PEFT) and structural control techniques.
 
-The foundation for training is the \texttt{iamkaikai/amazing\_logos\_v4} dataset \parencite{iamkaikai_amazing_logos_v4}, a multimodal corpus of approximately 400,000 logo-caption pairs. This dataset was chosen for its scale and detailed metadata, which includes company names, descriptions, and stylistic tags.
+The foundation for training is the \texttt{iamkaikai/amazing\_logos\_v4} dataset \cite{iamkaikai_amazing_logos_v4}, a multimodal corpus of approximately 400,000 logo-caption pairs. This dataset was chosen for its scale and detailed metadata, which includes company names, descriptions, and stylistic tags.
 
 \subsection{Model Selection and Architecture}\label{sec:modellauswahl}
 \subsubsection*{Base Model}
-Stable Diffusion v1.5 \parencite{HuggingFace_StableDiffusionv15_ModelCard} was selected as the base model. Its open-source nature, extensive ecosystem, and balance between generative quality and computational requirements make it ideal for iterative optimization on consumer hardware (NVIDIA RTX 5080, 16GB VRAM).
+Stable Diffusion v1.5 \cite{HuggingFace_StableDiffusionv15_ModelCard} was selected as the base model. Its open-source nature, extensive ecosystem, and balance between generative quality and computational requirements make it ideal for iterative optimization on consumer hardware (NVIDIA RTX 5080, 16GB VRAM).
 
 \subsubsection*{Structural Control: The ControlNet Pipeline}
-To enforce structural fidelity to user sketches, we utilize ControlNet \parencite{ZHANG2023}. We evaluated three pretrained models: Canny, Scribble, and Lineart.
+To enforce structural fidelity to user sketches, we utilize ControlNet \cite{ZHANG2023}. We evaluated three pretrained models: Canny, Scribble, and Lineart.
 \begin{itemize}
 	\item \textbf{Canny:} Often resulted in rigid, uncreative outputs due to strict edge adherence.
 	\item \textbf{Scribble:} Too loose, often ignoring fine structural details of the input sketch.
@@ -39,7 +39,7 @@ The raw dataset contained semi-structured captions that required systematic clea
 
 Table \ref{tab:data_cleaning_comparison} illustrates the transformation from the raw caption to the structured metadata.
 
-\begin{table}[H]
+\begin{table}[hbt!]
 	\centering
 	\caption{Comparison of data structure before and after cleaning}
 	\label{tab:data_cleaning_comparison}
@@ -69,7 +69,7 @@ To ensure the dataset reflects the target aesthetic, we developed a weighted "Mi
 	\caption{Distribution of the calculated Minimalism Score in the dataset.}
 	\label{fig:minimalism_score_distribution}
 \end{figure}
-As shown in Figure \ref{fig:minimalism_score_distribution}, we filtered the dataset using the median score (82.2) as a threshold. From the remaining pool, a class-balanced subset of 1,810 images was extracted to facilitate efficient hyperparameter optimization \parencite{ZHANG2023, ruiz2023dreamboothfinetuningtexttoimage}.
+As shown in Figure \ref{fig:minimalism_score_distribution}, we filtered the dataset using the median score (82.2) as a threshold. From the remaining pool, a class-balanced subset of 1,810 images was extracted to facilitate efficient hyperparameter optimization \cite{ZHANG2023, ruiz2023dreamboothfinetuningtexttoimage}.
 
 \subsubsection*{Generation of Control Signals}
 Since the dataset contains finished logos, synthetic "sketches" were generated to train the model's response to rough inputs.
@@ -113,13 +113,13 @@ Text prompts were standardized to the format: \texttt{minimalistic logo, solid b
 The curated dataset (1,810 images) was split into \textbf{Training (80\%, 1448)}, \textbf{Validation (10\%, 181)}, and \textbf{Test (10\%, 181)} sets using a fixed seed.
 
 \subsection{Fine-Tuning Strategy and Hyperparameters}\label{sec:feintuning_strategie}
-We employ Low-Rank Adaptation (LoRA) \parencite{HU2021} to fine-tune the UNet component of Stable Diffusion. The VAE, Text Encoder, and ControlNet are frozen to preserve their pretrained capabilities and ensure resource efficiency.
+We employ Low-Rank Adaptation (LoRA) \cite{HU2021} to fine-tune the UNet component of Stable Diffusion. The VAE, Text Encoder, and ControlNet are frozen to preserve their pretrained capabilities and ensure resource efficiency.
 We systematically analyze the following hyperparameters to identify the optimal configuration:
 \begin{itemize}
-	\item \textbf{Target Modules:} Comparing adaptation of only Attention layers vs. an Extended configuration (Attention + Feed-Forward layers) \parencite{dettmers2023qloraefficientfinetuningquantized}.
-	\item \textbf{LoRA Rank ($r$):} Evaluating ranks \textbf{\{4, 8, 16, 32\}} to find the balance between expressivity and efficiency \parencite{HU2021}.
-	\item \textbf{LoRA Alpha ($\alpha$):} Fixed at $1.5 \times r$. This decision is based on the finding of \textcite[p. 4]{HU2021} that the effective strength of LoRA adaptation can be primarily controlled via the learning rate, making a separate, detailed tuning of $\alpha$ less critical.
-	\item \textbf{Learning Rate:} Exploring the range \textbf{$1 \times 10^{-6}$ to $1 \times 10^{-4}$}, as PEFT methods typically tolerate higher rates than full fine-tuning \parencite{zhang2025parameter}.
+	\item \textbf{Target Modules:} Comparing adaptation of only Attention layers vs. an Extended configuration (Attention + Feed-Forward layers) \cite{dettmers2023qloraefficientfinetuningquantized}.
+	\item \textbf{LoRA Rank ($r$):} Evaluating ranks \textbf{\{4, 8, 16, 32\}} to find the balance between expressivity and efficiency \cite{HU2021}.
+	\item \textbf{LoRA Alpha ($\alpha$):} Fixed at $1.5 \times r$. This decision is based on the finding of \citet[p. 4]{HU2021} that the effective strength of LoRA adaptation can be primarily controlled via the learning rate, making a separate, detailed tuning of $\alpha$ less critical.
+	\item \textbf{Learning Rate:} Exploring the range \textbf{$1 \times 10^{-6}$ to $1 \times 10^{-4}$}, as PEFT methods typically tolerate higher rates than full fine-tuning \cite{zhang2025parameter}.
 	\item \textbf{Batch Size:} Fixed at \textbf{8} to maximize hardware utilization.
 \end{itemize}
 In total, 20 distinct hyperparameter combinations are evaluated (see Appendix \ref{app:hyperpara_kombis} for the complete list)

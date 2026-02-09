@@ -7,7 +7,7 @@ This section presents the quantitative assessment of the model's performance bas
 \subsubsection*{Loss Curve Analysis}
 Validation loss serves as an indicator of generalization. Figures \ref{fig:val_loss_curves_attn_only} and \ref{fig:val_loss_curves_extended} illustrate the training dynamics.
 
-\begin{figure}[H]
+\begin{figure}[hbt!]
     \centering
     \begin{subfigure}{\textwidth}
         \centering
@@ -33,12 +33,12 @@ The learning rate is the primary driver, with $lr=1e-4$ yielding the lowest loss
 The learning rate is even more dominant here, with significant gaps between $lr=1e-4$ and lower rates. While rank influence is generally low at the optimal learning rate, the combination of high rank ($r=32$) and lowest learning rate ($lr=1e-6$) shows an interesting anomaly: it achieves lower loss than the $lr=1e-5$ configuration towards the end of training, suggesting that lower learning rates might benefit from extended training durations.
 
 \paragraph*{Synthesis}
-The analysis reveals that the learning rate is the dominant factor. For both configurations, $lr=1e-4$ consistently yields the lowest loss. The ``attn\_only'' models generally achieve lower loss levels with less variance compared to ``extended'' models, which exhibit higher sensitivity and fluctuations. This instability is a known phenomenon in LoRA fine-tuning of diffusion models \parencite{luo2024privacypreservinglowrankadaptationmembership}.
+The analysis reveals that the learning rate is the dominant factor. For both configurations, $lr=1e-4$ consistently yields the lowest loss. The ``attn\_only'' models generally achieve lower loss levels with less variance compared to ``extended'' models, which exhibit higher sensitivity and fluctuations. This instability is a known phenomenon in LoRA fine-tuning of diffusion models \cite{luo2024privacypreservinglowrankadaptationmembership}.
 
 \subsubsection*{Structural Fidelity (SSIM)}
 SSIM measures how well the generated logo adheres to the input sketch. Data analysis reveals a complex interaction between learning rate, LoRA rank, and target modules, rather than a single dominant factor. No single hyperparameter shows a consistently superior trend.
 
-\begin{figure}[H]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=\textwidth]{abbildungen/ssim_en.png}
     \caption{SSIM scores vs. learning rate, rank, and module configuration.}
@@ -50,7 +50,7 @@ As shown in Figure \ref{fig:ssim_vs_rank_lr}, the pre-trained base model (dotted
 \subsubsection*{Semantic Alignment (CLIP Score)}
 The CLIP score evaluates the semantic correspondence between the image and the text prompt.
 
-\begin{figure}[H]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=\textwidth]{abbildungen/clip_en.png}
     \caption{CLIP scores vs. learning rate, rank, and module configuration.}
@@ -62,7 +62,7 @@ The analysis reveals complex interactions between the hyperparameters. Although 
 \subsubsection*{Image Quality (FID)}
 FID assesses the realism and feature distribution of the generated images.
 
-\begin{figure}[H]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=\textwidth]{abbildungen/fid_en.png}
     \caption{FID scores vs. learning rate, rank, and module configuration.}
@@ -74,7 +74,7 @@ Figure \ref{fig:fid_vs_rank_lr} demonstrates that learning rate is the critical 
 \subsubsection*{Model Selection}
 To identify the optimal model, a combined metric normalizing SSIM, CLIP, and (inverted) FID was calculated.
 
-\begin{figure}[H]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=\textwidth]{abbildungen/best_models.png}
     \caption{Top 5 model configurations (normalized metrics).}
@@ -86,7 +86,9 @@ The radar chart in Figure \ref{fig:best_models} identifies the configuration wit
 \subsubsection*{Evaluation on Test Set}\label{sec:testresults}
 The selected model was evaluated on an unseen test set to assess generalization. Table \ref{tab:testresults} compares the base model (without and with ControlNet) against the fine-tuned model.
 
-\begin{table}[H]
+\begin{table}[hbt!]
+    \caption{Test set metrics comparison.}
+    \label{tab:testresults}
     \centering
     \begin{tabular}{lccc}
         \toprule
@@ -99,8 +101,6 @@ The selected model was evaluated on an unseen test set to assess generalization.
         Improvement (Finetuned vs. Base w/ CN) & +3.7\%                         & -30.9\%                   & -3.4\%                   \\
         \bottomrule
     \end{tabular}
-    \caption{Test set metrics comparison.}
-    \label{tab:testresults}
 \end{table}
 
 The results demonstrate the distinct roles of the components:
@@ -117,7 +117,7 @@ For each case, both the base model (Stable Diffusion v1.5 with ControlNet) and t
 
 \noindent\textbf{Negative Prompt (for all case examples):} \textit{sketch, photorealistic, pattern in background, noisy, blurry, watermark}
 
-\begin{figure}[H]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=\textwidth]{abbildungen/comparison_overview.png}
     \caption{Comparison of generated logos across five representative cases (E1-E5) between the base and fine-tuned models.}

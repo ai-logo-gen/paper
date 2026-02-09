@@ -1,16 +1,25 @@
-\documentclass[11pt]{article}
-% template url: https://www.overleaf.com/latex/templates/18-dot-204-term-paper-template/jchfpsmvtvqq
-\usepackage{amsmath, amssymb, amscd, amsthm, amsfonts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Springer Nature Journal Template - Math and Physical Sciences
+%% Using sn-mathphys-num style (numbered references)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
+
+%%%% Standard Packages
 \usepackage{graphicx}
-\usepackage{float}
-\usepackage[labelfont=bf]{caption}
-\usepackage{subcaption}
 \usepackage{multirow}
-\usepackage{array}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
 
+%%%% Code listing style
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -37,53 +46,50 @@
 
 \lstset{style=mystyle}
 
-\usepackage[
-backend=biber,
-style=ieee,
-maxcitenames=3,
-maxbibnames=999,
-date=year,
-urldate=iso,
-dashed=false,
-doi=false,
-useprefix=true,
-mincrossrefs = 1
-]{biblatex}
-\addbibresource{literatur/literatur_ph.bib}
-
-\usepackage{hyperref}
-\usepackage[printonlyused]{acronym}
-\setcounter{tocdepth}{3}
-
+%%%% Custom commands
 \newcommand{\langde}[1]{}
 \newcommand{\langen}[1]{#1}
 
-
-\oddsidemargin 0pt
-\evensidemargin 0pt
-\marginparwidth 40pt
-\marginparsep 10pt
-\topmargin -20pt
-\headsep 10pt
-\textheight 8.7in
-\textwidth 6.65in
-\linespread{1.2}
-
-\title{The Minimalist Revolution5: Democratizing High-Quality Design with Efficient AI}
-\author{Paul Hornig}
-\date{}
-
+%%%% Theorem environments (if needed)
+\theoremstyle{thmstyleone}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{conjecture}[theorem]{Conjecture}
 
 \newcommand{\rr}{\mathbb{R}}
-
 \newcommand{\al}{\alpha}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\aff}{aff}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title and Author Information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\title[Democratizing High-Quality Logo Design with Efficient AI]{The Minimalist Revolution: Democratizing High-Quality Logo Design with Efficient AI}
+
+%%=============================================================%%
+%% Author information - UPDATE WITH YOUR ACTUAL INFORMATION
+%%=============================================================%%
+\author*[1]{\fnm{Paul} \sur{Hornig}}\email{paul.hornig@example.com}
+
+\affil*[1]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{Postcode}, \state{State}, \country{Country}}}
+
+%%=============================================================%%
+%% Abstract - moved from einleitung.tex
+%%=============================================================%%
+\abstract{This paper explores the resource-efficient fine-tuning of a Stable Diffusion model for the generation of minimalist logos. By leveraging a multimodal approach that combines text prompts with structural sketches via ControlNet, we address the limitations of standard text-to-image models in adhering to specific design constraints. We fine-tune the model on a curated dataset of 1,500 minimalist logos using consumer-grade hardware. A core contribution of this work is a systematic analysis of Low-Rank Adaptation (LoRA) hyperparameters, identifying optimal configurations for stylistic coherence and structural fidelity. We present a quantitative evaluation using CLIP, FID, and SSIM metrics, alongside qualitative case studies, demonstrating that high-quality, controllable design automation is achievable with limited computational resources.}
+
+%%=============================================================%%
+%% Keywords
+%%=============================================================%%
+\keywords{Generative AI, Logo Design, Stable Diffusion, LoRA, ControlNet, Parameter-Efficient Fine-Tuning}
+
+%%=============================================================%%
+%% Bibliography setup - sn-jnl handles this internally
+%% Keep your .bib file reference
+%%=============================================================%%
+% Note: sn-jnl uses its own bibliography style
+% The .bib file will be referenced at the end with \bibliography{}
 
 \begin{document}
 
@@ -96,9 +102,22 @@ mincrossrefs = 1
 \input{kapitel/ergebnisse}
 \input{kapitel/diskussion.tex}
 \input{kapitel/fazit.tex}
+
+%%=============================================================%%
+%% Acknowledgments (Optional) - Remove if not needed
+%%=============================================================%%
+% \input{kapitel/acknowledgments.tex}
+
+%%=============================================================%%
+%% Declarations section - REQUIRED by journal
+%%=============================================================%%
+\input{kapitel/declarations.tex}
+
 \input{kapitel/anhang.tex}
 
-\newpage
-\printbibliography
+%%=============================================================%%
+%% Bibliography
+%%=============================================================%%
+\bibliography{literatur/literatur_ph}
 
 \end{document}
