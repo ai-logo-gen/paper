@@ -3,9 +3,15 @@
 %% Using sn-mathphys-num style (numbered references)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\RequirePackage{silence}
+\WarningFilter{caption}{Unknown document class}
+\WarningFilter{latex}{Font shape `U/rsfs/m/n' in size}
+\WarningFilter{latex}{Size substitutions with differences}
+
 \documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
 
 %%%% Standard Packages
+\usepackage{type1cm} % Fix font size substitution warnings
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{amsmath,amssymb,amsfonts}
@@ -14,10 +20,15 @@
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage[compatibility=false]{caption}
 \usepackage{subcaption}
+\usepackage{microtype} % Better character protrusion and expansion to fix box warnings
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{float}
+\usepackage{array}
+
+\raggedbottom
 
 %%%% Code listing style
 \definecolor{codegreen}{rgb}{0,0.6,0}
