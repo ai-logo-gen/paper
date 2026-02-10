@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Springer Nature Journal Template - Math and Physical Sciences
+%% Using sn-mathphys-num style (numbered references)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
+
+%%%% Standard Packages
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
+
+%%%% Code listing style
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.99,0.99,0.99}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+%%%% Custom commands
+\newcommand{\langde}[1]{}
+\newcommand{\langen}[1]{#1}
+
+%%%% Theorem environments (if needed)
+\theoremstyle{thmstyleone}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\al}{\alpha}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\aff}{aff}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title and Author Information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Democratizing High-Quality Logo Design with Efficient AI]{The Minimalist Revolution: Democratizing High-Quality Logo Design with Efficient AI}
+
+%%=============================================================%%
+%% Author information - UPDATE WITH YOUR ACTUAL INFORMATION
+%%=============================================================%%
+\author*[1,2]{\fnm{Paul} \sur{Hornig}}\email{paul-hornig@gmx.de}
+
+\affil[1]{\orgdiv{Data Scientist \& Software Engineer}, \orgname{BWI GmbH}, \orgaddress{\city{Magdeburg}, \country{Germany}}}
+
+\affil[2]{\orgdiv{Big Data \& Business Analytics}, \orgname{FOM Hochschule für Oekonomie \& Management}, \orgaddress{\street{Leimkugelstraße 6}, \city{Essen}, \postcode{45141}, \country{Germany}}}
+
+%%=============================================================%%
+%% Abstract - moved from einleitung.tex
+%%=============================================================%%
+\abstract{This paper explores the resource-efficient fine-tuning of a Stable Diffusion model for the generation of minimalist logos. By leveraging a multimodal approach that combines text prompts with structural sketches via ControlNet, we address the limitations of standard text-to-image models in adhering to specific design constraints. We fine-tune the model on a curated dataset of 1,500 minimalist logos using consumer-grade hardware. A core contribution of this work is a systematic analysis of Low-Rank Adaptation (LoRA) hyperparameters, identifying optimal configurations for stylistic coherence and structural fidelity. We present a quantitative evaluation using CLIP, FID, and SSIM metrics, alongside qualitative case studies, demonstrating that high-quality, controllable design automation is achievable with limited computational resources.}
+
+%%=============================================================%%
+%% Keywords
+%%=============================================================%%
+\keywords{Generative AI, Logo Design, Stable Diffusion, LoRA, ControlNet, Parameter-Efficient Fine-Tuning}
+
+%%=============================================================%%
+%% Bibliography setup - sn-jnl handles this internally
+%% Keep your .bib file reference
+%%=============================================================%%
+% Note: sn-jnl uses its own bibliography style
+% The .bib file will be referenced at the end with \bibliography{}
+
+\begin{document}
+
+\maketitle
+
+\input{kapitel/einleitung}
+\input{kapitel/grundlagen}
+\input{kapitel/methodik}
+\input{kapitel/implementierung}
+\input{kapitel/ergebnisse}
+\input{kapitel/diskussion.tex}
+\input{kapitel/fazit.tex}
+
+%%=============================================================%%
+%% Acknowledgments (Optional) - Remove if not needed
+%%=============================================================%%
+% \input{kapitel/acknowledgments.tex}
+
+%%=============================================================%%
+%% Declarations section - REQUIRED by journal
+%%=============================================================%%
+\input{kapitel/declarations.tex}
+
+\input{kapitel/anhang.tex}
+
+%%=============================================================%%
+%% Bibliography
+%%=============================================================%%
+\bibliography{literatur/literatur_ph}
+
+\end{document}

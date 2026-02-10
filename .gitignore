@@ -1,0 +1,7 @@
+*:Zone.Identifier
+*.Identifier
+thesis_main.*
+!thesis_main.tex
+!thesis_main.pdf
+indent.log
+gitignore
