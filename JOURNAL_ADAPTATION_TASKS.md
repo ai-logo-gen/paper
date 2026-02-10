@@ -100,7 +100,7 @@ Required/typical journal article sections:
    - Add ORCID if available
 
 2. **Code Repository** in `declarations.tex` (line ~50):
-   - Add actual GitHub/GitLab repository URL
+   - [x] Add actual GitHub/GitLab repository URL
 
 3. **Review Declarations** in `declarations.tex`:
    - Verify all statements are accurate
@@ -109,4 +109,4 @@ Required/typical journal article sections:
 - [x] Compile document and verify it works
 - [x] Check PDF output
 - [x] Verify all citations render correctly
-- [ ] Final proofreading
+- [x] Final proofreading
