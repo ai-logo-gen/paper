@@ -2,13 +2,13 @@
 
 \subsection{Summary}
 This thesis investigated the resource-efficient optimization of a multimodal diffusion model for minimalist logo generation. By combining LoRA-based fine-tuning with ControlNet guidance, we developed a prototype capable of operating on consumer-grade hardware (NVIDIA RTX 5080).
-The experimental evaluation confirmed that structural guidance is indispensable for geometric precision (SSIM +32.4\%), while domain-specific fine-tuning significantly enhances semantic and visual quality (FID -30.9\%). Systematic analysis identified the learning rate as the critical lever for convergence, with higher rates ($1e-4$) consistently yielding superior results.
+The experimental evaluation confirmed that structural guidance is indispensable for geometric precision (SSIM +32.4\%), while domain-specific fine-tuning significantly enhances semantic and visual quality (FID -30.9\%). Systematic analysis identified the learning rate as the critical lever for convergence within the scope of this work, with higher rates ($1e-4$) consistently yielding superior results.
 
 \subsection{Scientific Contributions and Implications}
 A key contribution of this work is the validation of parameter-efficient training strategies for the specific domain of logo design.
 \begin{itemize}
     \item \textbf{Hyperparameter Dynamics:} Our findings confirm literature recommendations for high learning rates ($1e-4$) in PEFT methods \cite{HU2021}. However, contrary to the suggestion that very low ranks (4 or 8) constitute a "sweet spot" \cite{HU2021}, our experiments demonstrated that a higher rank of 32 provided the necessary capacity to capture the stylistic nuances of minimalist design without overfitting.
-    \item \textbf{Efficiency Verification:} We demonstrated that a compact dataset of 1,500 images and approximately 2,500 training steps are sufficient to achieve professional-grade results in the context of minimalist logos. This challenges the general assumption that massive datasets are a prerequisite for effective domain adaptation.
+    \item \textbf{Efficiency Verification:} We demonstrated that a compact, well-filtered dataset of 1,500 high-quality logos and approximately 2,500 training steps are sufficient to achieve professional-grade results. This underscores that data quality and curation significantly outweigh pure volume in effective domain adaptation.
 \end{itemize}
 
 \subsection{Future Directions}
