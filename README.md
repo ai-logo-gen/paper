@@ -1,78 +1,66 @@
-# Minimalistische Logogenerierung Publikation
+# The Minimalist Revolution: Democratizing High-Quality Logo Design with Efficient AI
 
-Dieses Repository enthält den LaTeX-Quellcode für die Publikation "The Minimalist Revolution: Democratizing High-Quality Design with Efficient AI".
+This repository contains the LaTeX source code for the paper:  
+**"The Minimalist Revolution: Democratizing High-Quality Logo Design with Efficient AI"**
 
-## Voraussetzungen
+**Author:** Paul Hornig  
+**Keywords:** Generative AI, Logo Design, Stable Diffusion, LoRA, ControlNet, Parameter-Efficient Fine-Tuning
 
-Um an diesem Projekt unter Linux zu arbeiten und die PDF zu generieren, benötigst du eine LaTeX-Distribution.
+---
 
-### Installation (Debian/Ubuntu/Mint)
+## Overview
 
-Die einfachste Möglichkeit ist die Installation von `texlive-full`, um alle Pakete verfügbar zu haben:
+This research explores the resource-efficient fine-tuning of Stable Diffusion models for generating minimalist logos. By combining text-to-image generation with structural control via ControlNet, the project demonstrates how high-quality, controllable design automation is achievable on consumer-grade hardware.
 
+## Repository Structure
+
+- `thesis_main.tex`: The main LaTeX document.
+- `kapitel/`: Directory containing individual chapters:
+  - `einleitung.tex` (Introduction)
+  - `grundlagen.tex` (Theoretical Background)
+  - `methodik.tex` (Methodology)
+  - `implementierung.tex` (Implementation)
+  - `ergebnisse.tex` (Results)
+  - `diskussion.tex` (Discussion)
+  - `fazit.tex` (Conclusion)
+  - `declarations.tex` (Declarations & Availability)
+  - `anhang.tex` (Appendix)
+- `abbildungen/`: Figures and charts used in the manuscript.
+- `literatur/`: Bibliography database (`.bib`).
+- `sn-jnl.cls`: Springer Nature journal document class.
+
+## Getting Started
+
+### Prerequisites
+
+To compile the manuscript, you need a standard LaTeX distribution (e.g., TeX Live) installed on your system.
+
+**On Ubuntu/Debian:**
 ```bash
 sudo apt update
-sudo apt install texlive-full
+sudo apt install texlive-latex-base texlive-latex-extra texlive-science texlive-bibtex-extra latexmk
 ```
 
-Alternativ reicht oft auch eine Basis-Installation plus notwendige Pakete (empfohlen für weniger Speicherplatzverbrauch):
+### Compiling the Paper
 
-```bash
-sudo apt install texlive-latex-base texlive-latex-extra texlive-science texlive-bibtex-extra biber latexmk
-```
-
-### Installation (Fedora/RHEL)
-
-```bash
-sudo dnf install texlive-scheme-full
-```
-
-## Bearbeiten
-
-Die Hauptdatei ist `thesis_main.tex`. Inhaltliche Änderungen werden in den entsprechenden `.tex` Dateien vorgenommen.
-
-Empfohlene Editoren:
-- **VS Code** mit der Extension **LaTeX Workshop**. (Strg+Alt+B zum Bauen)
-- **TexMaker** oder **TeXstudio**
-
-## Kompilieren (PDF erzeugen)
-
-### Mit `latexmk` (Empfohlen)
-
-`latexmk` automatisiert den Build-Prozess (pdflatex -> biber -> pdflatex etc.), damit Referenzen und das Inhaltsverzeichnis korrekt sind.
+The most efficient way to build the PDF is using `latexmk`, which handles cross-references and bibliographies automatically.
 
 ```bash
 latexmk -pdf thesis_main.tex
 ```
 
-Um bei Änderungen automatisch neu zu bauen (Watch-Mode):
-
-```bash
-latexmk -pvc -pdf thesis_main.tex
-```
-
-### Manuell
-
-Wenn `latexmk` nicht verfügbar ist, führe folgende Befehle nacheinander aus:
-
+Alternatively, you can run `pdflatex` manually:
 ```bash
 pdflatex thesis_main.tex
-biber thesis_main
+bibtex thesis_main
 pdflatex thesis_main.tex
 pdflatex thesis_main.tex
 ```
 
-## Aufräumen
+The output will be generated as `thesis_main.pdf`.
 
-Um temporäre Dateien zu löschen:
+## Data and Code Availability
 
-```bash
-latexmk -c
-# oder manuell
-rm *.aux *.bbl *.bcf *.blg *.fdb_latexmk *.fls *.log *.out *.run.xml *.synctex.gz
-```
-
-
-
-
-
+- **Dataset:** The processed minimalist logo dataset is available on Kaggle: [Minimalistic Logos, Sketches and Prompts](https://www.kaggle.com/datasets/paulhornig/minimalistic-logos-sketches-and-prompts).
+- **Code (Data Prep):** [ai-logo-gen/data-prep](https://github.com/ai-logo-gen/data-prep)
+- **Code (Modeling):** [ai-logo-gen/modeling](https://github.com/ai-logo-gen/modeling)
