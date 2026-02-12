@@ -26,13 +26,13 @@ Validation loss serves as an indicator of generalization. Figures \ref{fig:val_l
     \label{fig:val_loss_curves}
 \end{figure}
 
-\paragraph*{Observations for ``attn\_only''}
+\subsubsection*{Observations for ``attn\_only''}
 The learning rate is the primary driver, with $lr=1e-4$ yielding the lowest loss. The LoRA rank has a minor impact, mostly noticeable at $lr=1e-5$ where higher ranks perform slightly better. A notable exception is the combination of $r=4$ and $lr=1e-5$, which exhibits remarkably low variance, indicating a very stable learning process despite not achieving the absolute lowest loss.
 
-\paragraph*{Observations for ``extended''}
+\subsubsection*{Observations for ``extended''}
 The learning rate is even more dominant here, with significant gaps between $lr=1e-4$ and lower rates. While rank influence is generally low at the optimal learning rate, the combination of high rank ($r=32$) and lowest learning rate ($lr=1e-6$) shows an interesting anomaly: it achieves lower loss than the $lr=1e-5$ configuration towards the end of training, suggesting that lower learning rates might benefit from extended training durations.
 
-\paragraph*{Synthesis}
+\subsubsection*{Synthesis}
 The analysis reveals that the learning rate is the dominant factor. For both configurations, $lr=1e-4$ consistently yields the lowest loss. The ``attn\_only'' models generally achieve lower loss levels with less variance compared to ``extended'' models, which exhibit higher sensitivity and fluctuations. This instability is a known phenomenon in LoRA fine-tuning of diffusion models \cite{luo2024privacypreservinglowrankadaptationmembership}.
 
 \subsubsection*{Structural Fidelity (SSIM)}
