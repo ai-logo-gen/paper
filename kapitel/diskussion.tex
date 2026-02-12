@@ -1,3 +1,4 @@
+\newpage
 \section{Discussion}\label{sec:diskussion}
 
 This study systematically investigated the resource-efficient specialization of a multimodal diffusion model for minimalist logo generation. By combining LoRA-based fine-tuning with ControlNet guidance, a prototype was developed that effectively processes both textual and structural constraints. This chapter interprets the experimental findings by directly addressing the research hypotheses formulated in Chapter \ref{sec:introduction} and discusses limitations alongside future research directions.
@@ -29,7 +30,7 @@ While the results demonstrate the viability of the proposed pipeline, several li
     \item \textbf{Synthetic Artifacts:} The generation of synthetic training data sometimes introduced unwanted lines or thematic elements (e.g., pencils or rough textures) not present in the original logo input. These artifacts occurred because the model associated the "sketch" domain with physical drawing tools, potentially polluting the structural control signal.
 \end{enumerate}
 
-Despite these limitations, the proposed method is \textbf{strongly recommended for productive use} in the early stages of the design process, specifically for ideation and the rapid generation of stylized layout concepts. Future work will focus on the following pillars:
+Despite these limitations, the proposed method is recommended for productive use in the early stages of the design process, specifically for ideation and the rapid generation of stylized layout concepts. Future work will focus on the following pillars:
 
 \subsubsection*{Data Quality and Augmentation}
 Future iterations should employ Vision-Language Models (VLMs) to generate ultra-detailed captions and structured categorizations, such as distinguishing wordmarks from pictorial marks. This would significantly enhance the model's semantic understanding \cite{zeng-etal-2025-enhancing-large}. Furthermore, synthetic sketch generation could be diversified using more advanced edge detection algorithms or dedicated sketch models to improve robustness against the variability of human hand-drawn inputs. Crucially, future data pipelines should prioritize the logical traceability of synthetic signals, ensuring that generated sketches are strictly consistent with the original logo templates and free from non-semantic artifacts that do not reflect the underlying design.
