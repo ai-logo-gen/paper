@@ -84,31 +84,30 @@ To identify the optimal model, a combined metric normalizing SSIM, CLIP, and (in
 The radar chart in Figure \ref{fig:best_models} identifies the configuration with \textbf{Rank 32, $lr=1e-4$, and ``extended'' modules} as the best overall performer. It offers the best compromise, maximizing image quality and semantic alignment while maintaining acceptable structural fidelity.
 
 \subsubsection*{Evaluation on Test Set}\label{sec:testresults}
-The selected model was evaluated on an unseen test set to assess generalization. Table \ref{tab:testresults} compares the base model (without and with ControlNet) against the fine-tuned model.
+The selected model was evaluated on an unseen test set to assess generalization. To ensure statistical robustness, the evaluation was conducted using five different random seeds. Table \ref{tab:testresults} compares the base model (without and with ControlNet) against the fine-tuned model.
 
 \begin{table}[hbt!]
-    \caption{Test set metrics comparison.}
+    \caption{Test set metrics comparison (mean $\pm$ standard deviation over 5 seeds).}
     \label{tab:testresults}
     \centering
     \begin{tabular}{lccc}
         \toprule
         \textbf{Model}                         & \textbf{CLIP Score} $\uparrow$ & \textbf{FID} $\downarrow$ & \textbf{SSIM} $\uparrow$ \\
         \midrule
-        Base Model (w/o CN)                    & 0.284                          & 223.2                     & 0.617                    \\
-        Base Model (w/ CN)                     & 0.274                          & 229.0                     & 0.817                    \\
-        Finetuned Model                        & 0.284                          & 158.2                     & 0.789                    \\
+        Base Model (w/o CN)                    & $0.285 \pm 0.001$              & $223.3 \pm 4.1$           & $0.621 \pm 0.010$        \\
+        Base Model (w/ CN)                     & $0.277 \pm 0.002$              & $228.3 \pm 5.5$           & $0.819 \pm 0.011$        \\
+        Finetuned Model                        & $0.287 \pm 0.002$              & $157.6 \pm 1.2$           & $0.788 \pm 0.004$        \\
         \midrule
-        Improvement (Finetuned vs. Base w/ CN) & +3.7\%                         & -30.9\%                   & -3.4\%                   \\
+        Improvement (Finetuned vs. Base w/ CN) & +3.6\%                         & -31.0\%                   & -3.8\%                   \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 The results demonstrate the distinct roles of the components:
 \begin{itemize}
-    \item \textbf{ControlNet} is essential for structure, boosting SSIM by 32.4\% compared to the unconditioned base model.
-    \item \textbf{Fine-tuning} restores semantic alignment (+3.7\% CLIP) and drastically improves image quality (-30.9\% FID). The significant FID reduction (229.0 to 158.2) outweighs the minor 3.4\% SSIM decrease (0.817 to 0.789), representing a conscious trade-off: minimal structural precision is sacrificed for enhanced semantic and visual quality.
+    \item \textbf{ControlNet} is essential for structure, boosting SSIM by 31.9\% compared to the unconditioned base model.
+    \item \textbf{Fine-tuning} enhances semantic alignment (+3.6\% CLIP) and drastically improves image quality (-31.0\% FID). The significant FID reduction ($228.3$ to $157.6$) outweighs the minor 3.8\% SSIM decrease ($0.819$ to $0.788$), which is negligible as the structural fidelity remains at an excellently high level.
 \end{itemize}
-The fine-tuned model successfully combines structural control with domain-specific aesthetic quality.
 
 \subsection{Qualitative Analysis}\label{sec:qualitative_analyse}
 To validate the quantitative findings, a qualitative analysis was conducted using five representative case examples (E1--E5), as illustrated in Figure \ref{fig:logo_case_studies}. Four examples (E1, E2, E3, E5) were selected based on their sketches from the test dataset to cover diverse logo types: wordmarks, pictorial/abstract marks, and combined marks. Additionally, Example E4 - a monogram based on a hand-drawn sketch - was included to test the model on authentic human input. This diversity allows for a comprehensive evaluation across design categories.
@@ -117,7 +116,7 @@ For each case, both the base model (Stable Diffusion v1.5 with ControlNet) and t
 
 \noindent\textbf{Negative Prompt (for all case examples):} \textit{sketch, photorealistic, pattern in background, noisy, blurry, watermark}
 
-\begin{figure}[H]
+\begin{figure}[hbt!]
     \centering
     \includegraphics[width=\textwidth]{abbildungen/comparison_overview.png}
     \caption{Comparison of generated logos across five representative cases (E1-E5) between the base and fine-tuned models.}
