@@ -45,7 +45,7 @@ SSIM measures how well the generated logo adheres to the input sketch. Data anal
     \label{fig:ssim_vs_rank_lr}
 \end{figure}
 
-As shown in Figure \ref{fig:ssim_vs_rank_lr}, the pre-trained base model (dotted line) already achieves an excellent SSIM of 0.827. Fine-tuning does not significantly improve structural fidelity; in fact, higher learning rates ($1e-4$) in the ``extended'' configuration can slightly degrade it. This confirms that ControlNet alone provides robust structural control.
+As shown in Figure \ref{fig:ssim_vs_rank_lr}, the pre-trained base model (dotted line) already achieves an excellent SSIM of 0.819. Fine-tuning does not significantly improve structural fidelity; in fact, higher learning rates ($1e-4$) in the ``extended'' configuration can slightly degrade it. This confirms that ControlNet alone provides robust structural control.
 
 \subsubsection*{Semantic Alignment (CLIP Score)}
 The CLIP score evaluates the semantic correspondence between the image and the text prompt.
@@ -57,7 +57,7 @@ The CLIP score evaluates the semantic correspondence between the image and the t
     \label{fig:clip_vs_rank_lr}
 \end{figure}
 
-The analysis reveals complex interactions between the hyperparameters. Although the absolute differences in CLIP scores are small and within a small percentage range, clear trends can be identified: In contrast to SSIM, fine-tuning significantly improves semantic alignment (Figure \ref{fig:clip_vs_rank_lr}). The best performance is achieved with $lr=1e-4$, high rank ($r=32$), and the ``extended'' configuration, surpassing the base model by approximately 4\%. This highlights the necessity of fine-tuning for capturing domain-specific semantics.
+The analysis reveals complex interactions between the hyperparameters. Although the absolute differences in CLIP scores are small and within a small percentage range, clear trends can be identified: In contrast to SSIM, fine-tuning improves semantic alignment (Figure \ref{fig:clip_vs_rank_lr}). The best performance is achieved with $lr=1e-4$, high rank ($r=32$), and the ``extended'' configuration, surpassing the base model by approximately 3.6\%. This highlights the necessity of fine-tuning for capturing domain-specific semantics.
 
 \subsubsection*{Image Quality (FID)}
 FID assesses the realism and feature distribution of the generated images.
@@ -69,7 +69,7 @@ FID assesses the realism and feature distribution of the generated images.
     \label{fig:fid_vs_rank_lr}
 \end{figure}
 
-Figure \ref{fig:fid_vs_rank_lr} demonstrates that learning rate is the critical driver for image quality. The highest learning rate ($1e-4$) consistently produces the lowest (best) FID scores, improving upon the base model by roughly 28\%. The ``extended'' configuration outperforms ``attn\_only'' at this optimal learning rate.
+Figure \ref{fig:fid_vs_rank_lr} demonstrates that learning rate is the critical driver for image quality. The highest learning rate ($1e-4$) consistently produces the lowest (best) FID scores, improving upon the base model by roughly 31\%. The ``extended'' configuration outperforms ``attn\_only'' at this optimal learning rate.
 
 \subsubsection*{Model Selection}
 To identify the optimal model, a combined metric normalizing SSIM, CLIP, and (inverted) FID was calculated.
@@ -84,7 +84,7 @@ To identify the optimal model, a combined metric normalizing SSIM, CLIP, and (in
 The radar chart in Figure \ref{fig:best_models} identifies the configuration with \textbf{Rank 32, $lr=1e-4$, and ``extended'' modules} as the best overall performer. It offers the best compromise, maximizing image quality and semantic alignment while maintaining acceptable structural fidelity.
 
 \subsubsection*{Evaluation on Test Set}\label{sec:testresults}
-The selected model was evaluated on an unseen test set to assess generalization. To ensure statistical robustness, the evaluation was conducted using five different random seeds, and the results are reported as mean $\pm$ standard deviation. Table \ref{tab:testresults} compares the base model (without and with ControlNet) against the fine-tuned model.
+The selected model was evaluated on an unseen test set to assess generalization. To ensure statistical robustness, the evaluation was conducted using five different random seeds. Table \ref{tab:testresults} compares the base model (without and with ControlNet) against the fine-tuned model.
 
 \begin{table}[hbt!]
     \caption{Test set metrics comparison (mean $\pm$ standard deviation over 5 seeds).}
@@ -106,9 +106,8 @@ The selected model was evaluated on an unseen test set to assess generalization.
 The results demonstrate the distinct roles of the components:
 \begin{itemize}
     \item \textbf{ControlNet} is essential for structure, boosting SSIM by 31.9\% compared to the unconditioned base model.
-    \item \textbf{Fine-tuning} restores semantic alignment (+3.6\% CLIP) and drastically improves image quality (-31.0\% FID). The significant FID reduction ($228.3$ to $157.6$) outweighs the minor 3.8\% SSIM decrease ($0.819$ to $0.788$), representing a conscious trade-off: minimal structural precision is sacrificed for enhanced semantic and visual quality.
+    \item \textbf{Fine-tuning} enhances semantic alignment (+3.6\% CLIP) and drastically improves image quality (-31.0\% FID). The significant FID reduction ($228.3$ to $157.6$) outweighs the minor 3.8\% SSIM decrease ($0.819$ to $0.788$), which is negligible as the structural fidelity remains at an excellently high level.
 \end{itemize}
-The fine-tuned model successfully combines structural control with domain-specific aesthetic quality.
 
 \subsection{Qualitative Analysis}\label{sec:qualitative_analyse}
 To validate the quantitative findings, a qualitative analysis was conducted using five representative case examples (E1--E5), as illustrated in Figure \ref{fig:logo_case_studies}. Four examples (E1, E2, E3, E5) were selected based on their sketches from the test dataset to cover diverse logo types: wordmarks, pictorial/abstract marks, and combined marks. Additionally, Example E4 - a monogram based on a hand-drawn sketch - was included to test the model on authentic human input. This diversity allows for a comprehensive evaluation across design categories.
