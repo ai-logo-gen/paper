@@ -1,8 +1,8 @@
 \section{Conclusion and Outlook}\label{sec:fazit}
 
-\subsection{Summary}
-This thesis investigated the resource-efficient optimization of a multimodal diffusion model for minimalist logo generation. By combining LoRA-based fine-tuning with ControlNet guidance, a prototype was developed capable of operating on consumer-grade hardware (NVIDIA RTX 5080).
-The experimental evaluation confirmed that structural guidance is indispensable for geometric precision (SSIM +31.9\%), while domain-specific fine-tuning significantly enhances semantic and visual quality (FID -31.0\%). Systematic analysis identified the learning rate as the critical lever for convergence, with higher rates ($1e-4$) consistently yielding superior results.
+This work set out to answer whether foundation models can effectively master simplicity through resource-efficient specialization. The investigation into multimodal logo generation has demonstrated that by combining LoRA-based fine-tuning with ControlNet guidance, a general-purpose model can be successfully adapted to the highly specific and constrained domain of minimalist design using consumer-grade hardware.
+
+The experimental evaluation confirmed that while foundation models provide a powerful base, specialized "mastery" is achieved through multimodal conditioning. Structural guidance proved indispensable for geometric precision (SSIM +31.9\%), while targeted fine-tuning significantly enhanced stylistic coherence (FID -31.0\%). This confirms that complexity can be harnessed for simplicity without requiring industrial-scale compute resources.
 
 \subsection{Scientific Contributions and Implications}
 A key contribution of this work is the validation of parameter-efficient training strategies for the specific domain of logo design.
