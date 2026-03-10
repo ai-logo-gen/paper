@@ -1,7 +1,7 @@
-# The Minimalist Revolution: Democratizing High-Quality Logo Design with Efficient AI
+# Can Foundation Models Master Simplicity? A Systematic Evaluation of Resource-Efficient Specialization for Logo Generation
 
 This repository contains the LaTeX source code for the paper:  
-**"The Minimalist Revolution: Democratizing High-Quality Logo Design with Efficient AI"**
+**"Can Foundation Models Master Simplicity? A Systematic Evaluation of Resource-Efficient Specialization for Logo Generation"**
 
 **Author:** Paul Hornig  
 **Keywords:** Generative AI, Logo Design, Stable Diffusion, LoRA, ControlNet, Parameter-Efficient Fine-Tuning
