@@ -1,10 +1,10 @@
-# Can Foundation Models Master Simplicity? A Systematic Evaluation of Resource-Efficient Specialization for Logo Generation
+# Can Foundation Models Master Simplicity? A Systematic Evaluation of Resource-Efficient Multimodal Specialization for Logo Generation
 
 This repository contains the LaTeX source code for the paper:  
-**"Can Foundation Models Master Simplicity? A Systematic Evaluation of Resource-Efficient Specialization for Logo Generation"**
+**"Can Foundation Models Master Simplicity? A Systematic Evaluation of Resource-Efficient Multimodal Specialization for Logo Generation"**
 
 **Author:** Paul Hornig  
-**Keywords:** Generative AI, Logo Design, Stable Diffusion, LoRA, ControlNet, Parameter-Efficient Fine-Tuning
+**Keywords:** Generative AI, Logo Design, Stable Diffusion, LoRA, ControlNet, Multimodal Learning, Parameter-Efficient Fine-Tuning
 
 ---
 
