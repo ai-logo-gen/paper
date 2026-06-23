@@ -31,7 +31,7 @@ Fine-tuning large foundation models is resource-intensive. PEFT methods aim to a
 \textbf{Low-Rank Adaptation (LoRA)} \cite[4]{HU2021} is a prominent PEFT technique. It hypothesizes that weight updates have a low intrinsic rank and approximates them using low-rank matrices ($ \Delta W = B \cdot A $). This significantly reduces the number of trainable parameters and memory usage, making fine-tuning feasible on consumer GPUs \cite[4]{Zhihao_2025}.
 
 \subsection{Evaluation Metrics}\label{subsec:bewertungsmetriken}
-We employ three metrics to evaluate the generated logos:
+Three metrics are employed to evaluate the generated logos:
 \begin{itemize}
 	\item \textbf{CLIP Score:} Measures the semantic alignment between the generated image and the text prompt \cite{Hessel2021CLIPScoreAR}.
 	\item \textbf{SSIM (Structural Similarity Index):} Quantifies the structural fidelity of the generated logo to the input sketch, focusing on luminance, contrast, and structure \cite{ssim_original}\cite[3]{snell2017learning}.
